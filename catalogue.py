@@ -14,32 +14,32 @@ app.debug = True
 @app.route('/Video/<video>')
 def video_page(video):
     print (video)
-    #TODO: this IP is for mongoDB server
-    url = 'http://34.173.227.154/myflix/videos?filter={"video.uuid":"'+video+'"}'
-    headers = {}
-    payload = json.dumps({ })
-    print (request.endpoint)
-    response = requests.get(url)
-    print (url)
-    jResp = response.json()
-    if response.status_code != 200:
-      print("Unexpected response: {0}. Status: {1}. Message: {2}".format(response.reason, response.status, jResp['Exception']['Message']))
-      return "Unexpected response: {0}. Status: {1}. Message: {2}".format(response.reason, response.status, jResp['Exception']['Message'])
-    print (type(jResp))
-    print (jResp)
-    for index in jResp:
-        for key in index:
-           if (key !="_id"):
-              print (index[key])
-              for key2 in index[key]:
-                  print (key2,index[key][key2])
-                  if (key2=="Name"):
-                      video=index[key][key2]
-                  if (key2=="file"):
-                      videofile=index[key][key2]
-                  if (key2=="pic"):
-                      pic=index[key][key2]
-    return render_template('video.html', name=video,file=videofile,pic=pic)
+    # #TODO: this IP is for mongoDB server
+    # url = 'http://34.173.227.154/myflix/videos?filter={"video.uuid":"'+video+'"}'
+    # headers = {}
+    # payload = json.dumps({ })
+    # print (request.endpoint)
+    # response = requests.get(url)
+    # print (url)
+    # jResp = response.json()
+    # if response.status_code != 200:
+    #   print("Unexpected response: {0}. Status: {1}. Message: {2}".format(response.reason, response.status, jResp['Exception']['Message']))
+    #   return "Unexpected response: {0}. Status: {1}. Message: {2}".format(response.reason, response.status, jResp['Exception']['Message'])
+    # print (type(jResp))
+    # print (jResp)
+    # for index in jResp:
+    #     for key in index:
+    #        if (key !="_id"):
+    #           print (index[key])
+    #           for key2 in index[key]:
+    #               print (key2,index[key][key2])
+    #               if (key2=="Name"):
+    #                   video=index[key][key2]
+    #               if (key2=="file"):
+    #                   videofile=index[key][key2]
+    #               if (key2=="pic"):
+    #                   pic=index[key][key2]
+    # return render_template('video.html', name=video,file=videofile,pic=pic)
 
 @app.route('/')
 def cat_page():
@@ -77,6 +77,7 @@ def cat_page():
     #           html=html+'<h3>'+name+'</h3>'
     #           ServerIP=request.host.split(':')[0]
     #           html=html+'<a href="http://'+ServerIP+'/Video/'+uuid+'">'
+    # TODO: video IP here
     #           html=html+'<img src="http://35.228.145.155/pics/'+thumb+'">'
     #           html=html+"</a>"
     #           print("=======================")
