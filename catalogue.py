@@ -78,7 +78,7 @@ def cat_page():
               ServerIP=request.host.split(':')[0]
               html=html+'<a href="http://'+ServerIP+'/Video/'+uuid+'">'
     # TODO: video IP here
-              html=html+'<img src="http://35.228.145.155/pics/'+thumb+'">'
+              html=html+'<img src="http://34.38.47.251/pics/'+thumb+'">'
               html=html+"</a>"
               print("=======================")
 
