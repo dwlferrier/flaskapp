@@ -21,10 +21,11 @@ def video_page(video):
     print (request.endpoint)
     response = requests.get(url)
     print (url)
-    jResp = response.json()
+
     if response.status_code != 200:
       print("Unexpected response: {0}. Status: {1}. Message: {2}".format(response.reason, response.status, jResp['Exception']['Message']))
       return "Unexpected response: {0}. Status: {1}. Message: {2}".format(response.reason, response.status, jResp['Exception']['Message'])
+    jResp = response.json()
     print (type(jResp))
     print (jResp)
     for index in jResp:
@@ -53,10 +54,10 @@ def cat_page():
     # exit if status code is not ok
     print (response)
     print (response.status_code)
-    jResp = response.json()
     if response.status_code != 200:
       print("Unexpected response: {0}. Status: {1}. Message: {2}".format(response.reason, response.status, jResp['Exception']['Message']))
       return "Unexpected response: {0}. Status: {1}. Message: {2}".format(response.reason, response.status, jResp['Exception']['Message'])
+    jResp = response.json()
     print (type(jResp))
     html="<h2> Your Videos</h2>"
     for index in jResp:
